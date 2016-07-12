@@ -1,6 +1,6 @@
 require_relative './locatable'
 
-class Treasure
+class Station
   include Locatable
 
   attr_reader :latitude, :longitude
@@ -9,6 +9,9 @@ class Treasure
     @latitude =     options[:lat]
     @longitude =    options[:lon]
   end
+
+  #def self.closest_to options={}
+
 
   def self.all
     [

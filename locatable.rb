@@ -1,10 +1,11 @@
 require 'haversine'
 
 module Locatable
-  Point = Struct.new :latitude, :longitude
 
   def distance_to options={}
-    binding.pry
+    coordinates = options.values + [self.latitude, self.longitude]
+    h = Haversine.distance( *(coordinates) )
+    h.great_circle_distance
   end
 
 
