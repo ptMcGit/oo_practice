@@ -1,23 +1,18 @@
-require_relative './locatable'
+require_relative './coordinate_thingey'
 
-class Station
-  include Locatable
+class Station < CoordinateThingey
 
-  attr_reader :latitude, :longitude
+  attr_reader :says
 
-  def initialize options={}
-    @latitude =     options[:lat]
-    @longitude =    options[:lon]
+  def post_initialize
+    @says = 'whoop whoop'
   end
-
-  #def self.closest_to options={}
-
 
   def self.all
     [
-      Station.new(12, -36),
-      Station.new(10, -33),
-      Station.new(77,  45)
+      Station.new(lat: 12, lon: -36),
+      Station.new(lat: 10, lon: -33),
+      Station.new(lat: 77, lon:  45)
     ]
   end
 end
