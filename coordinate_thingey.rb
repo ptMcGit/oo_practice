@@ -6,10 +6,14 @@ class CoordinateThingey
   attr_accessor :nearby_things
 
   def initialize options={}
-    @latitude =     options[:lat]
-    @longitude =    options[:lon]
-    @nearby_things = []
+    @latitude       =   options[:lat]
+    @longitude      =   options[:lon]
+    @nearby_things  =   {}
     post_initialize
+  end
+
+  def to_s
+    self.class.to_s.downcase
   end
 
   def coordinates
